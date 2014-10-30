@@ -27,8 +27,6 @@ setPrototype.contains = function(item){
 };
 
 setPrototype.remove = function(item){
-  console.log('before :');
-  console.log(this._storage);
   for(var i = 0; i < this._storage.length; i++) {
     if(this._storage[i] === item) {
       this._storage.splice(i, 1);
