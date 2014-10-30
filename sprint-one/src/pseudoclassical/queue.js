@@ -22,3 +22,4 @@ Queue.prototype.size = function() {
   return Object.keys(this.storage).length;
 };
 
+var MyQueue = new Queue();

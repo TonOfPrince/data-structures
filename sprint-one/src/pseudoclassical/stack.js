@@ -19,3 +19,5 @@ Stack.prototype.pop = function() {
 Stack.prototype.size = function() {
   return Object.keys(this.storage).length;
 };
+
+var MyStack = new Stack();
