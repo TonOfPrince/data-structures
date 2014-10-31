@@ -19,6 +19,7 @@ HashTable.prototype.insert = function(k, v){
     }
     if (!inserted) {
       specificBucket.push([k,v]);
+
     }
   }
 };
@@ -28,14 +29,20 @@ HashTable.prototype.retrieve = function(k){
   var specificBucket = this._storage.get(i);
   for(var j = 0; j < specificBucket.length; j++) {
     if(specificBucket[j][0] === k) {
-      console.log(specificBucket[j][1]);
       return specificBucket[j][1];
     }
   }
+  return null;
 };
 
 HashTable.prototype.remove = function(k){
-  this.insert(k,null);
+  var i = getIndexBelowMaxForKey(k, this._limit);
+  var specificBucket = this._storage.get(i);
+  for(var j = 0; j < specificBucket.length; j++) {
+    if(specificBucket[j][0] === k) {
+      specificBucket.splice(j, 1);
+    }
+  }
 };
 
 
