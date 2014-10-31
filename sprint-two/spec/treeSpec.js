@@ -32,6 +32,14 @@ describe('tree', function() {
     expect(tree.children[0].children[0].value).to.equal(6);
   });
 
+  it('should remove children from parent', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].removeFromParent();
+    expect(tree.children[0].value).to.equal(6);
+
+  });
+
   it('should correctly detect nested children', function(){
     tree.addChild(5);
     tree.addChild(6);
@@ -39,6 +47,22 @@ describe('tree', function() {
     tree.children[1].addChild(8);
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
+  });
+
+  it('should affect callback on all nodes', function() {
+    var array = [];
+    var addone = function(value) {
+      array.push(value + 1);
+    }
+    var tree1 = makeTree(1);
+    tree1.addChild(2);
+    tree1.addChild(3);
+    tree1.addChild(4);
+    tree1.addChild(5);
+    tree1.children[0].addChild(6);
+    tree1.children[0].addChild(7);
+    tree1.traverse(addone);
+    expect(array).to.eql([2,3,7,8,4,5,6]);
   });
 
 });
