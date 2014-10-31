@@ -17,9 +17,9 @@ HashTable.prototype.insert = function(k, v){
         inserted = true;
       }
     }
-      if (!inserted) {
-        specificBucket.push([k,v]);
-      }
+    if (!inserted) {
+      specificBucket.push([k,v]);
+    }
   }
 };
 
