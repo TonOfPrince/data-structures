@@ -52,4 +52,6 @@ var makeNode = function(value){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * contains: O(n)
+ * everything else: O(1);
  */

@@ -50,9 +50,6 @@ binaryTreeMethods.depthFirstLog = function(callback){
 };
 /*
  * Complexity: What is the time complexity of the above functions?
+ * O(log(n)) average
  */
-// var tree1 = makeBinarSearchTree(8);
-// var tree5 = makeBinarSearchTree(8);
-// tree1.insert(3);
-// tree1.insert(10);
-// tree5.insert(7);
+

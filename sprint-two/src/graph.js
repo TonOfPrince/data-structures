@@ -86,4 +86,8 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * add edge and add node = O(1);
+ * removing node = O(V+E);
+ * removing edge = O(E);
+ * Query = O(V);
  */
