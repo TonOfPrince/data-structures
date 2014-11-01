@@ -17,7 +17,11 @@ setPrototype.add = function(item){
   //   this._storage = [item];
   // }
 
-  this._storage[item] = true;
+  if(tyepof item === "object") {
+    this._storage[JSON.stringify(item)] = true;
+  } else {
+    this._storage[item] = true;
+  }
 };
 
 setPrototype.contains = function(item){
@@ -27,7 +31,11 @@ setPrototype.contains = function(item){
   //   }
   // }
   // return false
-  return this._storage[item];
+  if(tyepof item === "object") {
+    return this._storage[JSON.stringify(item)];
+  } else {
+    return this._storage[item];
+  }
 };
 
 setPrototype.remove = function(item){
@@ -36,7 +44,11 @@ setPrototype.remove = function(item){
   //     this._storage.splice(i, 1);
   //   }
   // }
-  this._storage[item] = false;
+  if(tyepof item === "object") {
+    this._storage[JSON.stringify(item)] = false;
+  } else {
+    this._storage[item] = false;
+  }
 };
 
 /*
