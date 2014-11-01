@@ -44,10 +44,27 @@ binaryTreeMethods.depthFirstLog = function(callback){
     this.left.depthFirstLog(callback);
   }
   if (this.right) {
-   // console.log(this.)
     this.right.depthFirstLog(callback);
   }
 };
+
+binaryTreeMethods.breadthFirstLog = function(callback) {
+//callback(this);
+  var arr = [this];
+  while (arr.length > 0) {
+    var item = arr.shift();
+    if(callback) {
+      callback(item.value);
+    }
+    if(item.left) {
+      arr.push(item.left);
+    }
+    if(item.right) {
+      arr.push(item.right);
+    }
+  }
+
+}
 /*
  * Complexity: What is the time complexity of the above functions?
  * O(log(n)) average
