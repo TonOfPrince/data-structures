@@ -1,27 +1,30 @@
-var makeBinarySearchTree = function(value){
+var makeBinarySearchTree = function(value, minDepth, maxDepth){
   var tree = Object.create(binaryTreeMethods);
   tree.left = null;
   tree.right = null;
   tree.value = value;
+  tree.minDepth = minDepth;
+  tree.maxDepth = maxDepth;
   return tree;
 };
 
 var binaryTreeMethods = {};
 
+binaryTreeMethods.minDepth = function() {
+
+}
+
 binaryTreeMethods.insert = function(value) {
   var newTree = makeBinarySearchTree(value);
   if (value > this.value && !this.right) {
     this.right = newTree;
-  } else if (value > this.value && this.right){
+  } else if (value > this.value && this.right) {
     this.right.insert(value);
   } else if (value < this.value && !this.left) {
     this.left = newTree;
   } else if (value < this.value && this.left) {
     this.left.insert(value);
-  } else {
-
   }
-
 };
 
 binaryTreeMethods.contains = function(target) {
@@ -32,8 +35,6 @@ binaryTreeMethods.contains = function(target) {
     found = found || this.right.contains(target);
   } else if (target < this.value && this.left) {
     found = found || this.left.contains(target);
-  } else {
-
   }
   return found;
 };
